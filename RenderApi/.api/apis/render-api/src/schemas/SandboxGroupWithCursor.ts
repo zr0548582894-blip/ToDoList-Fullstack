@@ -1,0 +1,93 @@
+import Cursor from './Cursor.js';
+
+const SandboxGroupWithCursor = {
+  "type": "object",
+  "description": "A sandbox group with a cursor for fetching the next page of results.",
+  "required": [
+    "sandboxGroup",
+    "cursor"
+  ],
+  "properties": {
+    "sandboxGroup": {
+      "description": "A group of sandboxes in a workspace that share a region, concurrency limit, and credentials.",
+      "type": "object",
+      "required": [
+        "id",
+        "ownerId",
+        "name",
+        "region",
+        "isDefault",
+        "concurrencyLimit",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "id": {
+          "description": "The ID of the sandbox group.",
+          "type": "string",
+          "pattern": "^sbg-[0-9a-v]{20}$",
+          "examples": [
+            "sbg-cph1rs3idesc73a2b2mg"
+          ]
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The ID of the workspace this group belongs to.",
+          "examples": [
+            "tea-cph1rs3idesc73a2b2mg"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The sandbox group's name.",
+          "examples": [
+            "Default"
+          ]
+        },
+        "region": {
+          "type": "string",
+          "description": "The Render region where the group's sandboxes run.",
+          "examples": [
+            "oregon"
+          ]
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Whether this is the workspace's default sandbox group. Create requests that omit `sandboxGroupId` use this group."
+        },
+        "environmentId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The ID of the environment that contains this group. Null if the group isn't in a project. To move a group, add it to or remove it from an environment with `/environments/{environmentId}/resources`."
+        },
+        "concurrencyLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The maximum number of active sandboxes allowed in this group, capped by Render's limit for the workspace."
+        },
+        "createdAt": {
+          "description": "The timestamp when the sandbox group was created, in ISO 8601 format.",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2026-07-02T18:30:00Z"
+          ]
+        },
+        "updatedAt": {
+          "description": "The timestamp when the sandbox group was last updated, in ISO 8601 format.",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2026-07-02T18:30:00Z"
+          ]
+        }
+      }
+    },
+    "cursor": Cursor
+  },
+  "title": "sandboxGroupWithCursor",
+  "x-readme-ref-name": "sandboxGroupWithCursor"
+} as const;
+export default SandboxGroupWithCursor

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/api@8/schema.json",
+  "apis": [
+    {
+      "private": true,
+      "identifier": "render-api",
+      "source": "@render-api/v1.0#cdxqtzmwtgz4ik",
+      "integrity": "sha512-rsOVkavovzxlJ+zaM3EPE1KqyLx6UKo+WE9vqpUZYrQ3nnPN7MlzlRcht9FSbhnCAsWaRdTTmI9JniTp/ReuQA==",
+      "installerVersion": "8.0.1",
+      "language": "js",
+      "createdAt": "2026-11-25T14:16:14.059Z"
+    }
+  ]
+}
