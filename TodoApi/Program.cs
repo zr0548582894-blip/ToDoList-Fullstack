@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TodoApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,5 +42,4 @@ app.MapDelete("/items/{id}", async (ToDoDbContext db, int id) =>
     await db.SaveChangesAsync();
     return Results.NoContent();
 });
-app.MapGet("/", () => "AuthServer API is running");
 app.Run();
